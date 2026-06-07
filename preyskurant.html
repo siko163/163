@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Прейскурант на услуги — ФБУЗ ЦГИЭ в Мурманской области</title>
+<link rel="icon" href="assets/logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="uslugi">
+
+<div id="site-top"></div>
+
+<div class="page-head"><div class="container">
+  <div class="breadcrumb"><a href="index.html">Главная</a> / <a href="uslugi.html">Услуги и цены</a> / Прейскурант</div>
+  <h1>Прейскурант на услуги</h1>
+</div></div>
+
+<section>
+  <div class="container">
+    <p class="section-subtitle">Найдите услугу по названию или коду — нужные разделы раскроются автоматически. Действует с 01.01.2026.</p>
+    <div class="pk-search"><input type="search" id="pk-search" placeholder="🔎 Поиск услуги или кода…" autocomplete="off"></div>
+    <div class="pk-quick" id="pk-quick"></div>
+    <div class="pk-docs" id="pk-docs"></div>
+    <div id="pk-list"></div>
+    <p class="price-note">Прейскурант одним файлом: <a class="link-more docref" data-doc="preyskurant-arhiv">Скачать полный прейскурант (Excel, архив) ↗</a></p>
+  </div>
+</section>
+
+<div id="site-bottom"></div>
+
+<script src="assets/content.js"></script>
+<script src="assets/vendor-xlsx.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

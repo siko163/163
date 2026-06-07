@@ -17,15 +17,16 @@
   <h1>Об организации</h1>
 </div></div>
 
-<section>
+<section id="razdel-o-centre">
   <div class="container">
     <h2 class="section-title">О центре</h2>
     <p id="about-intro" class="section-subtitle" style="max-width:880px"></p>
     <p id="about-schedule" style="color:var(--text-muted);font-size:14.5px"></p>
+    <p style="margin-top:14px"><a class="link-more" href="statya.html?id=istoriya-uchrezhdeniya">Подробнее об истории учреждения →</a></p>
   </div>
 </section>
 
-<section class="services-bg">
+<section class="services-bg" id="razdel-rukovodstvo">
   <div class="container">
     <h2 class="section-title">Руководство</h2>
     <p class="section-subtitle">Руководящий состав учреждения</p>
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<section class="news-bg">
+<section class="news-bg" id="razdel-filialy">
   <div class="container">
     <h2 class="section-title">Филиалы</h2>
     <p class="section-subtitle">Подразделения на территории Мурманской области</p>
@@ -47,20 +48,37 @@
       <div class="info-block">
         <h2>Основные направления деятельности</h2>
         <ul class="dir-list" id="about-directions"></ul>
+        <p style="margin-top:18px"><a class="link-more" href="statya.html?id=osnovnye-napravleniya-deyatelnosti">Подробнее →</a></p>
       </div>
-      <div class="info-block">
+      <div class="info-block" id="razdel-otdely">
         <h2>Отделы учреждения</h2>
         <ul class="dir-list" style="grid-template-columns:1fr" id="about-departments"></ul>
+        <p style="margin-top:18px"><a class="link-more" href="files/struktura-2026.jpg" target="_blank" rel="noopener">Структура учреждения (схема) →</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section class="services-bg" id="razdel-podrazdeleniya">
   <div class="container">
-    <h2 class="section-title">Сведения об учреждении</h2>
-    <p class="section-subtitle">Правоустанавливающие документы, аккредитация, государственное задание и закупки</p>
-    <div id="disclosure-list"></div>
+    <h2 class="section-title">Полезные разделы</h2>
+    <p class="section-subtitle">Услуги, документы и информация об учреждении</p>
+    <div class="link-cards">
+      <a href="zpp.html"><strong>Защита прав потребителей</strong><span>Бесплатные консультации, памятки, образцы претензий</span></a>
+      <a href="statya.html?id=istoriya-uchrezhdeniya"><strong>История учреждения</strong><span>Становление санитарно-эпидемиологической службы области</span></a>
+      <a href="statya.html?id=osnovnye-napravleniya-deyatelnosti"><strong>Основные направления деятельности</strong><span>Подробно о направлениях работы центра</span></a>
+      <a href="licenzii.html"><strong>Лицензии</strong><span>Лицензии и выписки из реестра лицензий</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="razdel-dokumenty">
+  <div class="container">
+    <h2 class="section-title">Правоустанавливающие документы</h2>
+    <p class="section-subtitle">Устав, лицензии, ИНН, ОГРН, выписки из ЕГРЮЛ и приказы об изменениях</p>
+    <div class="link-cards">
+      <a href="dokumenty.html?cat=%D0%9F%D1%80%D0%B0%D0%B2%D0%BE%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%B0%D0%B2%D0%BB%D0%B8%D0%B2%D0%B0%D1%8E%D1%89%D0%B8%D0%B5+%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B"><strong>Открыть правоустанавливающие документы</strong><span>Устав, лицензии, свидетельства ИНН/ОГРН/ЕГРЮЛ, приказы об изменениях устава</span></a>
+    </div>
     <p class="price-note">См. также раздел <a class="link-more" href="antikorrupciya.html">Противодействие коррупции</a>.</p>
   </div>
 </section>
@@ -68,6 +86,7 @@
 <div id="site-bottom"></div>
 
 <script src="assets/content.js"></script>
+<script src="assets/articles.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>
