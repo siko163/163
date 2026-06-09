@@ -179,10 +179,12 @@ nav.site-nav {
   background: var(--white); border-radius: 12px; padding: 20px 18px; text-decoration: none;
   display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 20px rgba(13,59,122,0.12);
   border: 2px solid transparent; transition: border-color .2s, transform .2s, box-shadow .2s;
+  min-width: 0;
 }
+.qa-text { min-width: 0; overflow-wrap: break-word; }
 .qa-card:hover { border-color: var(--blue-light); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(13,59,122,0.18); }
 .qa-icon { width: 46px; height: 46px; border-radius: 10px; background: var(--blue-pale); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 22px; transition: background .2s; }
-.qa-card:hover .qa-icon { background: var(--blue-mid); }
+.qa-card:hover .qa-icon { background-color: #dceaf9; }
 .qa-text strong { display: block; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13.5px; color: var(--text); line-height: 1.3; }
 .qa-text span { font-size: 12px; color: var(--text-muted); }
 
@@ -266,7 +268,7 @@ section { padding: 56px 0; }
 .doc-list li:last-child { border-bottom: none; }
 .doc-row { display: flex; align-items: center; gap: 14px; padding: 16px 22px; text-decoration: none; color: var(--text); transition: background .15s; cursor: pointer; }
 .doc-row:hover { background: var(--blue-pale); color: var(--blue-dark); }
-.doc-title { flex: 1; font-size: 15px; line-height: 1.4; }
+.doc-title { flex: 1; min-width: 0; overflow-wrap: break-word; font-size: 15px; line-height: 1.4; }
 .doc-row:hover .doc-dl { text-decoration: underline; }
 .doc-icon { width: 40px; height: 40px; background: var(--blue-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--blue-mid); font-size: 12px; font-weight: 700; font-family: 'Montserrat', sans-serif; }
 .doc-dl { font-size: 12px; color: var(--blue-mid); font-family: 'Montserrat', sans-serif; font-weight: 700; white-space: nowrap; }
@@ -280,17 +282,26 @@ section { padding: 56px 0; }
 a.contact-item { border-radius: 10px; padding: 8px; margin: -8px; transition: background .15s; cursor: pointer; }
 a.contact-item:hover { background: var(--blue-pale); }
 .contact-icon { width: 38px; height: 38px; background: var(--blue-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
-/* строгие линейные SVG-иконки вместо эмодзи (по атрибуту data-ico) */
-span.contact-icon[data-ico] { font-size: 0; background-repeat: no-repeat; background-position: center; background-size: 20px 20px; }
-span.contact-icon[data-ico="pin"]      { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.4-7-11a7 7 0 0 1 14 0c0 4.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'); }
-span.contact-icon[data-ico="phone"]    { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'); }
-span.contact-icon[data-ico="mail"]     { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>'); }
-span.contact-icon[data-ico="chat"]     { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>'); }
-span.contact-icon[data-ico="globe"]    { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'); }
-span.contact-icon[data-ico="clock"]    { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>'); }
-span.contact-icon[data-ico="cup"]      { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>'); }
-span.contact-icon[data-ico="calendar"] { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>'); }
-span.contact-icon[data-ico="fax"]      { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>'); }
+/* строгие линейные SVG-иконки вместо эмодзи (по атрибуту data-ico).
+   Значение хранится в переменной --ico, чтобы переиспользовать на .contact-icon/.qa-icon/.doc-icon */
+[data-ico="pin"]      { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.4-7-11a7 7 0 0 1 14 0c0 4.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'); }
+[data-ico="phone"]    { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'); }
+[data-ico="mail"]     { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>'); }
+[data-ico="chat"]     { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>'); }
+[data-ico="globe"]    { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'); }
+[data-ico="clock"]    { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>'); }
+[data-ico="cup"]      { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>'); }
+[data-ico="calendar"] { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>'); }
+[data-ico="fax"]      { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>'); }
+[data-ico="record"]   { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>'); }
+[data-ico="file"]     { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>'); }
+[data-ico="tag"]      { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>'); }
+[data-ico="folder"]   { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>'); }
+[data-ico="award"]    { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>'); }
+[data-ico="link"]     { --ico: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgb(21,80,154)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>'); }
+span.contact-icon[data-ico], span.qa-icon[data-ico], span.doc-icon[data-ico] { font-size: 0; color: transparent; background-image: var(--ico); background-repeat: no-repeat; background-position: center; }
+span.contact-icon[data-ico], span.doc-icon[data-ico] { background-size: 20px 20px; }
+span.qa-icon[data-ico] { background-size: 24px 24px; }
 .contact-item strong { display: block; font-size: 13px; font-weight: 700; color: var(--text); font-family: 'Montserrat', sans-serif; }
 .contact-item span, .contact-item a { font-size: 13px; color: var(--text-muted); }
 .contact-item a { color: var(--blue-mid); text-decoration: none; }
@@ -365,8 +376,8 @@ html.bvi * { letter-spacing: .3px; }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 960px) {
-  .qa-grid { grid-template-columns: repeat(2, 1fr); }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .qa-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .news-grid { grid-template-columns: 1fr; }
   .info-row { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; gap: 24px; }
@@ -398,7 +409,7 @@ html.bvi * { letter-spacing: .3px; }
   .nav-drop2 a { padding-left: 56px; }
 }
 @media (max-width: 600px) {
-  .qa-grid { grid-template-columns: 1fr 1fr; }
+  .qa-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   .header-contacts { display: none; }
   .contacts-grid { grid-template-columns: 1fr; }
@@ -406,7 +417,17 @@ html.bvi * { letter-spacing: .3px; }
   .hotlines-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
   .page-head h1 { font-size: 23px; }
   .price-row { flex-direction: column; gap: 2px; }
+  /* документы: дать заголовку больше места (строка целиком кликабельна) */
+  .doc-row { padding: 14px 16px; gap: 10px; }
+  .doc-dl { display: none; }
+  .doc-icon { width: 34px; height: 34px; }
 }
+/* защита от горизонтальной прокрутки на мобильном: переносим длинные слова */
+h1, h2, h3, h4, .section-title, .doc-title, .ilc-card-h,
+.lead-body strong, .branch-card strong, .contact-item strong,
+.contact-item span, .contact-item a, .struct-role, .struct-place,
+.ws-list li, .pk-name { overflow-wrap: break-word; hyphens: auto; }
+.struct-left, .contact-item > div { min-width: 0; }
 
 /* ─── ОБ ОРГАНИЗАЦИИ ─── */
 .dir-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }

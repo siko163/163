@@ -24,7 +24,8 @@
         ] },
         { title: 'Отделы учреждения',              href: 'ob-organizacii.html#razdel-otdely' },
         { title: 'Полезные разделы',               href: 'ob-organizacii.html#razdel-podrazdeleniya' },
-        { title: 'Правоустанавливающие документы', href: 'ob-organizacii.html#razdel-dokumenty' }
+        { title: 'Правоустанавливающие документы', href: 'ob-organizacii.html#razdel-dokumenty' },
+        { title: 'Контакты',                       href: 'kontakty.html' }
       ] },
     { id: 'uslugi',   title: 'Услуги и цены',  href: 'uslugi.html',
       sub: [
@@ -43,8 +44,7 @@
       ] },
     { id: 'zpp',      title: 'Консультационный центр', href: 'zpp.html' },
     { id: 'dokumenty',title: 'Документы',      href: 'dokumenty.html' },
-    { id: 'novosti',  title: 'Новости',        href: 'novosti.html' },
-    { id: 'kontakty', title: 'Контакты',       href: 'kontakty.html' }
+    { id: 'novosti',  title: 'Новости',        href: 'novosti.html' }
   ];
 
   function el(html) { var d = document.createElement('div'); d.innerHTML = html.trim(); return d.firstChild; }
@@ -198,10 +198,10 @@
     html += '<div class="article-body">' + (s.detail || []).map(function (p) { return '<p>' + p + '</p>'; }).join('') + '</div>';
     var info = '';
     if (s.phones && s.phones.length)
-      info += '<div class="contact-item"><span class="contact-icon">📞</span><div><strong>Телефон</strong>' +
-        s.phones.map(function (p) { return phoneLinks(p); }).join('') + '</div></div>';
+      info += '<div class="contact-item"><span class="contact-icon" data-ico="phone"></span><div><strong>Телефон</strong>' +
+        s.phones.map(function (p) { return phoneLinks(p); }).join('<br>') + '</div></div>';
     if (s.priceN)
-      info += '<div class="contact-item"><span class="contact-icon">📋</span><div><strong>Цены</strong>' +
+      info += '<div class="contact-item"><span class="contact-icon" data-ico="tag"></span><div><strong>Цены</strong>' +
         '<a href="preyskurant.html#razdel-' + s.priceN + '">Раздел ' + s.priceN + ' прейскуранта →</a></div></div>';
     if (info)
       html += '<div class="info-block" style="margin:18px 0"><h2>Контакты и цены</h2><div class="contacts-grid">' + info + '</div></div>';
@@ -212,7 +212,7 @@
         s.links.map(function (l) {
           var ext = /^https?:/.test(l.href);
           return '<li><a class="doc-row" href="' + l.href + '"' + (ext ? ' target="_blank" rel="noopener"' : '') +
-            '><span class="doc-icon">🔗</span><span class="doc-title">' + l.title + '</span><span class="doc-dl">Открыть →</span></a></li>';
+            '><span class="doc-icon" data-ico="link"></span><span class="doc-title">' + l.title + '</span><span class="doc-dl">Открыть →</span></a></li>';
         }).join('') + '</ul></div>';
     html += '<div class="ak-hotline">Записаться и уточнить детали: напишите нам <a href="' + (C.vkUrl || '#') +
       '" target="_blank" rel="noopener">ВКонтакте</a> или позвоните по телефону <a href="tel:' + (C.phoneHref || '') + '">' + (C.phone || '') + '</a>.</div>';
@@ -332,8 +332,9 @@
   /* список ссылок (на статьи/разделы) в стиле списка документов */
   function linkListHTML(arr) {
     return '<ul class="doc-list">' + (arr || []).map(function (l) {
-      return '<li><a class="doc-row" href="' + l.href + '">' +
-        '<span class="doc-icon">' + (l.type || '📄') + '</span>' +
+      var ic = l.type ? '<span class="doc-icon">' + l.type + '</span>'
+                      : '<span class="doc-icon" data-ico="file"></span>';
+      return '<li><a class="doc-row" href="' + l.href + '">' + ic +
         '<span class="doc-title">' + l.title + '</span>' +
         '<span class="doc-dl">Открыть →</span></a></li>';
     }).join('') + '</ul>';
@@ -778,10 +779,10 @@
       '<div class="bio-body"><h2 class="bio-name">' + b.name + '</h2>' +
       (b.head ? '<div class="bio-post">' + b.head + '</div>' : '') +
       '<div class="contacts-grid" style="margin:18px 0">' +
-        '<div class="contact-item"><span class="contact-icon">📍</span><div><strong>Адрес</strong><span>' + (b.address || '') + '</span></div></div>' +
-        '<div class="contact-item"><span class="contact-icon">📞</span><div><strong>Телефон</strong>' + phoneLinks(b.phone) + '</div></div>' +
-        (b.email ? '<div class="contact-item"><span class="contact-icon">✉️</span><div><strong>Email</strong><a href="mailto:' + b.email + '">' + b.email + '</a></div></div>' : '') +
-        '<div class="contact-item"><span class="contact-icon">🕒</span><div><strong>Время работы</strong><span>' + (b.schedule || '') + '</span></div></div>' +
+        '<div class="contact-item"><span class="contact-icon" data-ico="pin"></span><div><strong>Адрес</strong><span>' + (b.address || '') + '</span></div></div>' +
+        '<div class="contact-item"><span class="contact-icon" data-ico="phone"></span><div><strong>Телефон</strong>' + phoneLinks(b.phone) + '</div></div>' +
+        (b.email ? '<div class="contact-item"><span class="contact-icon" data-ico="mail"></span><div><strong>Email</strong><a href="mailto:' + b.email + '">' + b.email + '</a></div></div>' : '') +
+        '<div class="contact-item"><span class="contact-icon" data-ico="clock"></span><div><strong>Время работы</strong><span>' + (b.schedule || '') + '</span></div></div>' +
       '</div></div></div>' +
       (b.reception ? '<div class="ak-hotline">' + b.reception + '</div>' : '') +
       (structure ? '<h2 class="section-title" style="font-size:20px;margin-top:24px">Структура и контактные телефоны</h2><div class="struct-wrap">' + structure + '</div>' : '') +
